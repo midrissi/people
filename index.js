@@ -14,20 +14,17 @@ var Person = new Schema({
 		last: String
 	},
 	dob: {
-		type: Date,
-		required: true
+		type: Date
 	},
 	email: {
 		type: String,
 		required: true
 	},
 	cell: {
-		type: String,
-		required: true
+		type: String
 	},
 	phone: {
-		type: String,
-		required: true
+		type: String
 	}
 });
 

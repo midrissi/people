@@ -6,6 +6,22 @@
 </head>
 <body ng-app="app">
 	<div class="container" ng-controller="HttpCtrl">
+		<form ng-submit="save(newP)">
+			<div class="form-group">
+				<label>Firstname</label>
+				<input class="form-control" ng-model="newP.name.first">
+			</div>
+			<div class="form-group">
+				<label>Lastname</label>
+				<input class="form-control" ng-model="newP.name.last">
+			</div>
+			<div class="form-group">
+				<label>Email address</label>
+				<input class="form-control" ng-model="newP.email">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+		<button class="btn btn-default" ng-click="refresh()">Refresh</button>
 		<table class="table">
 			<thead>
 				<tr>

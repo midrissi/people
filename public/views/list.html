@@ -1,0 +1,29 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th>Firstname</th>
+			<th>Lastname</th>
+			<th>Cellphone</th>
+			<th>Email</th>
+			<th>Outils</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="p in people">
+			<td>{{p.name.first}}</td>
+			<td>{{p.name.last}}</td>
+			<td>{{p.cell}}</td>
+			<td>{{p.email}}</td>
+			<td>{{p.email}}</td>
+			<td>
+				<a href="">
+					<i ng-click="deleteOne(p)" class="fa fa-trash"></i>
+				</a>
+				<a href="">
+					<i ng-click="updateOne(p)" class="fa fa-edit"></i>
+				</a>
+			</td>
+		</tr>
+	</tbody>
+	<a href="#/new" class="btn btn-success">Create New</a>
+</table>

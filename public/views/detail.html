@@ -1,0 +1,15 @@
+<form>
+	<div class="form-group">
+		<label>Firstname</label>
+		<input class="form-control" ng-model="current.name.first">
+	</div>
+	<div class="form-group">
+		<label>Lastname</label>
+		<input class="form-control" ng-model="current.name.last">
+	</div>
+	<div class="form-group">
+		<label>Email address</label>
+		<input class="form-control" ng-model="current.email">
+	</div>
+	<button type="submit" class="btn btn-default" ng-click="save(current)">Save</button>
+</form>

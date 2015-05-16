@@ -6,7 +6,9 @@ angular.module('app', [])
 		$scope.messages = [];
 
 		$scope.getArray = function(length) {
-			return new Array(parseInt(length));
+			var parsed = parseInt(length);
+			parsed += length > parsed ? 1:0;
+			return new Array(parsed);
 		};
 
 		$scope.gotoPage = function(page) {
@@ -27,11 +29,10 @@ angular.module('app', [])
 		$scope.save = function(p) {
 			$http.post('/api/v1/people', p).success(function(data) {
 				$scope.refresh();
-				$scope.newP = {};
-				$scope.messages.push({
-					type: 'success',
-					content: 'Sauvegardé avec succé'
-				});
+				// $scope.messages.push({
+				// 	type: 'success',
+				// 	content: 'Sauvegardé avec succé'
+				// });
 			}).error(function (d) {
 				$scope.messages.push({
 					type: 'danger',

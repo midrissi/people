@@ -3,6 +3,7 @@ angular.module('app', [])
 		var arr = $scope.arr = [];
 		$scope.size = 5;
 		$scope.people = [];
+		$scope.messages = [];
 
 		$scope.getArray = function(length) {
 			return new Array(parseInt(length));
@@ -27,6 +28,15 @@ angular.module('app', [])
 			$http.post('/api/v1/people', p).success(function(data) {
 				$scope.refresh();
 				$scope.newP = {};
+				$scope.messages.push({
+					type: 'success',
+					content: 'Sauvegardé avec succé'
+				});
+			}).error(function (d) {
+				$scope.messages.push({
+					type: 'danger',
+					content: 'Erreur: ' + d.message
+				});
 			});
 		};
 	}])

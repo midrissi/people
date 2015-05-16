@@ -6,6 +6,11 @@
 </head>
 <body ng-app="app">
 	<div class="container" ng-controller="HttpCtrl">
+		<div>
+			<div class="alert alert-{{m.type}}" ng-repeat="m in messages">
+			{{m.content}}
+			</div>
+		</div>
 		<form ng-submit="save(newP)">
 			<div class="form-group">
 				<label>Firstname</label>

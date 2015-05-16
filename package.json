@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "mkdir db"
+    "postinstall": "mkdir db && cd public && bower install"
   },
   "author": "Mohamed IDRISSI",
   "license": "MIT",

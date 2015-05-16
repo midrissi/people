@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>AngularJS - Filters</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body ng-app="app">
+	<div class="container" ng-controller="HttpCtrl">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Firstname</th>
+					<th>Lastname</th>
+					<th>Cellphone</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="p in people | filter:{name: {first: first, last: last}, cell: cell, email: email}">
+					<td>{{p.name.first}}</td>
+					<td>{{p.name.last}}</td>
+					<td>{{p.cell}}</td>
+					<td>{{p.email}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<ul class="pagination">
+			<li ng-repeat="item in getArray(arr.length/size) track by $index" ng-class="{active: $index === current}">
+				<a href="" ng-click="gotoPage($index)">{{$index + 1}}</a>
+			</li>
+		</ul>
+	</div>
+</body>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="js/http.js"></script>
+</html>

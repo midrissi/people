@@ -3,6 +3,7 @@
 	<title>AngularJS - Filters</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
 </head>
 <body ng-app="app">
 	<div class="container" ng-controller="HttpCtrl">
@@ -11,22 +12,23 @@
 			{{m.content}}
 			</div>
 		</div>
-		<form ng-submit="save(newP)">
+		<form>
 			<div class="form-group">
 				<label>Firstname</label>
-				<input class="form-control" ng-model="newP.name.first">
+				<input class="form-control" ng-model="current.name.first">
 			</div>
 			<div class="form-group">
 				<label>Lastname</label>
-				<input class="form-control" ng-model="newP.name.last">
+				<input class="form-control" ng-model="current.name.last">
 			</div>
 			<div class="form-group">
 				<label>Email address</label>
-				<input class="form-control" ng-model="newP.email">
+				<input class="form-control" ng-model="current.email">
 			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button type="submit" class="btn btn-default" ng-click="save(current)">Update</button>
+			<button class="btn btn-danger" ng-click="deleteOne(current)">Delete</button>
+			<button class="btn btn-success" ng-click="addNew()">New Person</button>
 		</form>
-		<button class="btn btn-default" ng-click="refresh()">Refresh</button>
 		<table class="table">
 			<thead>
 				<tr>
@@ -34,24 +36,26 @@
 					<th>Lastname</th>
 					<th>Cellphone</th>
 					<th>Email</th>
+					<th>Outils</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="p in people | filter:{name: {first: first, last: last}, cell: cell, email: email}">
+				<tr ng-repeat="p in people" ng-click="select(p)">
 					<td>{{p.name.first}}</td>
 					<td>{{p.name.last}}</td>
 					<td>{{p.cell}}</td>
 					<td>{{p.email}}</td>
+					<td>{{p.email}}</td>
+					<td>
+						<i ng-click="deleteOne(p)" class="fa fa-trash"></i>
+					</td>
 				</tr>
 			</tbody>
 		</table>
-		<ul class="pagination">
-			<li ng-repeat="item in getArray(arr.length/size) track by $index" ng-class="{active: $index === current}">
-				<a href="" ng-click="gotoPage($index)">{{$index + 1}}</a>
-			</li>
-		</ul>
 	</div>
 </body>
 <script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
 <script src="js/http.js"></script>
+<script src="js/person.js"></script>
 </html>
